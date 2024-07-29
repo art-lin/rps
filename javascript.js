@@ -49,6 +49,7 @@ function playRound(human, computer) {
     }
     roundsPlayed++
     console.log(`SCORE: You - ${humanScore} | Computer - ${computerScore}`)
+}
 
 while (roundsPlayed < 5) {
     // get player's choice
