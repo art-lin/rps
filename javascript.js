@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let roundsPlayed = 0;
 
 function getComputerChoice(randomNum) {
     let computer;
@@ -40,17 +41,19 @@ function playRound(human, computer) {
     } else if ((human == 'rock' && computer == 'scissors') 
     || (human == 'paper' && computer == 'rock') 
     || (human == 'scissors' && computer == 'paper') ) {
-        console.log("You win!")
+        console.log("You win!");
+        humanScore++
     } else {
         console.log("You lose!")
+        computerScore++
     }
-    
+    roundsPlayed++
+    console.log(`SCORE: You - ${humanScore} | Computer - ${computerScore}`)
+
+while (roundsPlayed < 5) {
+    // get player's choice
+    let humanSelection = getHumanChoice();
+    // pick a random number 0-2 and call getComputerChoice with it
+    let computerSelection = (getComputerChoice(Math.floor(Math.random() * 3)));
+    playRound(humanSelection, computerSelection)
 }
-
-// get player's choice
-const humanSelection = getHumanChoice()
-
-// pick a random number 0-2 and call getComputerChoice with it
-const computerSelection = (getComputerChoice(Math.floor(Math.random() * 3)))
-
-playRound(humanSelection, computerSelection)
